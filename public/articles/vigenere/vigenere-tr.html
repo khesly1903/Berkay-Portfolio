@@ -1,0 +1,93 @@
+<h1>VIGENERE ŞİFRELEME</h1>
+
+<h2>Tarihçe</h2>
+<p>Aslında her şey MÖ 45 yıllarında Julius Caesar ile başlıyor. Roma İmparatoru Julius Caesar, kendi askerlerine gönderdiği mesajları şifrelemek için basit bir kaydırma şifreleme yöntemi kullanıyordu. Bu yöntem, her harfi belirli bir sayıda kaydırarak şifrelemeyi içeriyordu ve günümüzde Caesar şifresi olarak bilinir. Ancak bu şifreleme tekniği o kadar basitti ki, zamanla kolayca kırılabilir hâle geldi.</p>
+<p>Caesar şifrelemesinin en büyük sorunu monoalfabetik bir şifreleme olmasıydı. Yani tüm düz metindeki (plaintext) harfler, tek bir harf ile şifreleniyordu. Polialfabetik şifrelemede ise her harf için farklı bir anahtar kullanılır, bu da birden fazla alfabe kullanmayı gerektirir. Giovan Battista Bellaso, 1553 yılında La cifra del Sig. Giovan Battista Bellaso adlı kitabında bu fikri ortaya koymuştur. Bellaso'nun yönteminde bir anahtar kelime seçiliyor ve mesaj buna göre şifreleniyordu. Bu sayede tekrar eden harf frekansı azalıyor ve frekans analizi ile kırılması zorlaşıyordu.</p>
+<p>Bellaso'nun yönteminde sabit bir anahtar kullanılıyordu ve tüm düz metin buna göre şifreleniyordu. Sonrasında Blaise de Vigenère 1586'da yayımladığı Traité des chiffres adlı kitabında Bellaso'nun şifreleme sistemini ele almış ve kendi katkısı olan autokey cipher yöntemiyle geliştirmiştir. Ancak yıllar içinde Bellaso'nun şifreleme yöntemi unutulmuş, bu sistem Vigenère şifrelemesi olarak anılmaya başlanmıştır. İlginç olan ise, aslında Bellaso'nun yöntemi Vigenère'in adıyla anılırken, Vigenère'in yaptığı katkılar göz ardı edilmiştir.</p>
+<p>Kısacası Vigenère, Bellaso'nun şifreleme yöntemini 33 yıl sonra tekrar yayımlamış ve bu yöntem zamanla Vigenère şifrelemesi olarak adlandırılmıştır.</p>
+
+<div class="article-image">
+    <img src="/articles/vigenere/caesar.jpg" alt="">
+    <img src="/articles/vigenere/bellaso.jpg" alt="">
+    <img src="/articles/vigenere/vigenere.jpg" alt="">
+    <p>Julius Caesar - Giovan Battista Bellaso - Blaise de Vigenère</p>
+</div>
+
+<p>Önceden belirlenen anahtarlar bazen bir şiir, bazen de bir kitabın belirli bir bölümü gibi uzun ve analiz edilmesi zor metinlerden oluştuğundan gizli örgütler, devletler ve askeri birimler tarafından uzun yıllar boyunca güvenle kullanılmıştır. Özellikle 18. ve 19. yüzyıllarda, birçok istihbarat servisi ve diplomatik yazışmada Vigenère şifrelemesini tercih edilmiştir. Şifreli mesajlar ele geçirilse bile, anahtar bilinmeden çözülmesi imkânsız olarak görülüyordu.</p>
+
+<h2>Ceasar Şifreleme ve Vigenere Şifreleme</h2>
+
+<p>Caesar şifrelemesinde, düz metindeki (plaintext) her harfe bir sayı değeri atanır ve belirlenen bir sayı (anahtar) kadar kaydırılır. Bu değere anahtar (key) diyoruz, ancak anahtarın doğrudan bir sayı olabileceği gibi, bir harf seçilip onun sayı değeri alınarak da belirlenebileceğini bilmek önemlidir.</p>
+
+
+<p>Örneğin, düz metindeki harflere karşılık gelen sayı değerlerine 4 ekleyerek (bu, E harfi olarak da düşünülebilir) aşağıdaki gibi bir şifreleme yapabiliriz:</p>
+
+<div class="article-image article-image-medium">
+    <img src="/articles/vigenere/caesarcipher1.jpg" alt="">
+</div>
+
+
+
+<p>Eğer sayıyı eklediğimizde 25'i (a harfini 0 olarak kabul ediyoruz) aşarsa, buna denk gelen bir harf bulamayacağımız için modüler aritmetik kullanarak işlem yapıyoruz. Yani 26'ya bölüp kalanını alıyoruz.</p>
+
+<p>Vigenère şifrelemesi, Caesar şifrelemesi gibi oldukça basittir. Ancak burada anahtar bir harf yerine bir kelime veya cümle olarak seçilir (cümledeki boşluklar, sayılar ve özel karakterler atılır) ve seçilen anahtarın sayısal değeri hesaplanır. Sonrasında düz metin kadar tekrarlanarak şifreleme yapılır.</p>
+
+<p>Caesar şifrelemesi monoalfabetik ve Vigenère şifrelemesi ise polialfabetik olduğu için en basit şekilde farklarını şöyle görebiliriz:</p>
+
+<p>Caesar şifrelemesinde tek bir alfabe yeterlidir. Anahtar ile alfabe birleşince tek satırlık bir tablo elde edilir. Örneğin, yukarıdaki örneği ele alırsak, şöyle bir tablomuz olur:</p>
+
+
+<div class="article-image article-image-long">
+    <img src="/articles/vigenere/caesarTable.jpg" alt="">
+</div>
+
+<p>Vigenère şifrelemesinde, iki alfabe kullanılacağı için Tabula Recta adı verilen bir tabloya ihtiyacımız vardır.</p>
+
+
+<div class="article-image article-image-big">
+    <img src="/articles/vigenere/vigenereTable.jpg" alt="">
+    <p>Tabula Recta</p>
+</div>
+
+<p>Veya da Alberti Cipher Disc gibi havalı aletler kullanabilirsiniz.</p>
+
+
+<div class="article-image article-image-medium">
+    <img src="/articles/vigenere/disc.jpg" alt="">
+    <p>Alberti Cipher Disc</p>
+</div>
+
+<p>Bu yüzden, Vigenère şifrelemesi için Caesar şifrelemesinin gelişmiş hali demek mümkündür. Caesar şifrelemesinde, Tabula Recta'dan yalnızca bir sütun seçilir ve tüm düz metin bu sütuna göre şifrelenir. Ancak, Vigenère şifrelemesi bunu bir adım ileriye taşır ve düz metindeki her harfi farklı bir harfle şifreler. Bu sayede frekans analizi yapılmasını zorlaştırır.</p>
+
+<p>Örneğin, düz metin olarak CRYPTOGRAPHY'yi ve anahtar olarak KEY'i kullanalım.</p>
+
+
+<div class="article-image article-image-small">
+    <img src="/articles/vigenere/vigenereEnc.jpg" alt="">
+</div>
+
+<p>Deşifreleme işlemi için ise çıkartma işlemini uygularız.</p>
+
+
+<div class="article-image article-image-small">
+    <img src="/articles/vigenere/vigenereDec.jpg" alt="">
+</div>
+
+<p>Tabii ki her zaman tek bir kelime şifrelenmez. Düz metin şifrelenirken boşluklar, sayılar veya özel karakterler dikkate alınmaz. Eğer anahtar, düz metini tam olarak örtmezse, anahtarı düz metin bittiği yerde kesmeliyiz. Eğer anahtar, düz metinden uzunsa, sadece düz metin uzunluğuna kadar olan kısmı alınmalıdır.</p>
+
+<p>Örneğin, CRYPTO IS FUN 1729 ! düz metini KEY anahtarı ile şifreleyelim:</p>
+
+
+<div class="article-image-long">
+    <img src="/articles/vigenere/encEx.jpg" alt="">
+</div>
+
+<h2>Le Chiffre Indéchiffrable (Çözülemez Şifre)</h2>
+
+<p>Her ne kadar şu an bize basit gelse de, Vigenère şifreleme 300 yıl boyunca kırılamaz ve çözülemez bir şifreleme yöntemi olarak nitelendirildi. Bunun en büyük sebeplerinden biri, o zamanki teknolojinin bu kadar derin bir analiz yapamaması ve yeterince hızlı olmamasıydı; ancak 300 yıl, gerçekten uzun bir süre.</p>
+
+<p>Öncelikle, Vigenère şifreleme, Caesar şifreleme gibi basit frekans analizlerine karşı oldukça dayanıklıdır. Frekans analizinde, çokça kullanılan harfler ele alınır (örneğin, İngilizcede sıkça kullanılan E, A, R, I gibi harfler) ve şifreli metinde buna karşılık gelen harflere bakılır. Yani, en çok kullanılan harfin E olduğunu varsayarsak, şifrelenmiş metinde en çok bulunan harf büyük ihtimalle E'nin şifrelenmiş hali olacaktır. Kısacası, Caesar şifreleme'nin aksine, harflerin değişiminin sadece bir olasılığı değil, 26 farklı olasılığı vardır, bu da analizi zorlaştırır.</p>
+
+<p>300 yılın ardından, 19. yüzyılda Friedrich Kasiski ve Charles Babbage bu saltanata bir son verdi. Kasiski Testi adını verdikleri testte, tekrarlayan harf gruplarını analiz ederek anahtar uzunluğunu belirlemeyi mümkün kıldılar. Anahtar uzunluğu keşfedildikten sonra, her grup içindeki her harfe ayrı ayrı frekans analizleri yapılarak anahtar bulunabilir. Yani, anahtar uzunluğu bulunduğunda, düz metin anahtar uzunluğunda gruplara bölünüp, her grup bir Caesar şifrelemesi gibi düşünülerek şifre çözülebilir.</p>
+
+<p>Her ne kadar bugünkü teknolojimiz ve farklı yöntemler Vigenère şifreleme'yi kırabiliyor(?) olsa da, yeterince uzun ve düz metin uzunluğunda, tercihen rastgele olan bir anahtar seçimi ile yeniden kıralamaz hale gelebilir. Bu da One-Time Pad (OTP) gibi mükemmel bir şifreleme oluşturur. Son olarak şunu diyebiliriz: Rastgele ve düz metin ile aynı uzunluğa sahip bir anahtar ile Vigenère şifreleme yeniden kırılamaz hale gelebilir!</p>

@@ -1,0 +1,257 @@
+/* === TEMEL STİLLER === */
+.article-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.article-container2 {
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  max-width: 90rem;
+}
+
+.article-html {
+  font-family: "Inter", "Roboto", sans-serif;
+  color: #f7f7ff;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding: 0.7rem;
+}
+
+/* === TİPOGRAFİ === */
+.article-html h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+}
+
+.article-html h2,
+.article-html h3 {
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  border-bottom: 0.2rem solid white;
+}
+
+.article-html p {
+  text-align: justify;
+  /* text-indent: 2rem; */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article-html ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.numeric-ul {
+  margin-left: 2rem;
+  list-style-type: upper-roman;
+  margin-bottom: 1rem;
+}
+
+.article-html ul li {
+  padding-left: 1rem;
+}
+
+.article-html ul li p {
+  text-indent: 0;
+  margin-bottom: 0.2rem;
+}
+
+.note {
+  border-left: 0.2rem solid rgba(0, 0, 0, 0.363);
+  margin-left: 1rem;
+  padding-left: 1rem;
+}
+
+.indent-p {
+  padding-left: 2rem;
+}
+
+.center-p {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+/* .center-p{
+
+} */
+
+/* === RESİM STİLLERİ === */
+.article-image {
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.article-image img {
+  max-width: 100%;
+}
+
+.article-image-small img {
+  max-height: 20rem;
+}
+
+.article-image-medium img {
+  max-height: 35rem;
+}
+
+.article-image-big img {
+  max-height: 50rem;
+}
+
+.article-image-long img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Orantıyı koru */
+}
+/* 
+.article-image-long {
+  max-height: 80vh; 
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+} */
+
+.article-image p {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+  width: 100%;
+}
+
+/* === TABLET (768px VE ÜZERİ) === */
+@media (min-width: 768px) {
+  .article-container2 {
+    width: 85%;
+    padding: 2.5rem;
+  }
+
+  .article-html {
+    font-size: 1.1rem;
+  }
+
+  .article-html h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .article-image {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+
+  .article-image img {
+    max-height: 20rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .article-html p {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+.numeric-ul {
+  margin-left: 0.5rem;
+}
+
+  .indent-p {
+    padding-left: 1rem;
+  }
+
+.article-html h2,
+.article-html h3 {
+  
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  border-bottom: 0.2rem solid white;
+}
+}
+/* === MASAÜSTÜ (1024px VE ÜZERİ) === */
+@media (min-width: 1024px) {
+  .article-container2 {
+    width: 70%;
+  }
+
+  .article-html h1 {
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .article-image-medium img {
+    max-height: 30rem;
+  }
+
+  .article-image-big img {
+    max-height: 40rem;
+  }
+}
+
+/* === EKSTRA KÜÇÜK CİHAZLAR (360px ALTı) === */
+@media (max-width: 380px) {
+  .article-html p {
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .article-html h1 {
+    font-size: 1.8rem;
+  }
+
+  .article-container {
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .article-container2 {
+    padding: 1rem;
+  }
+
+  .article-html h2,
+  .article-html h3 {
+    display: flex;
+    place-content: center;
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+    border-bottom: 0.2rem solid white;
+  }
+
+
+.numeric-ul {
+  margin-left: 0.5rem;
+}
+
+  .indent-p {
+    padding-left: 1rem;
+  }
+}
+
+/* === YATAY MOD === */
+@media (max-height: 40rem) and (orientation: landscape) {
+  .article-html h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-image img {
+    max-height: 15rem;
+  }
+}

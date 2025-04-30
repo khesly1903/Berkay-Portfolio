@@ -1,0 +1,33 @@
+
+
+*{
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #F7F7FF;
+  font-family: 'Space Mono', monospace;
+  /* font-family:  'Courier New', Courier, monospace; */
+  
+}
+
+body {
+  background-color: #272D2D;
+  opacity: 1;
+  margin: 0;
+ 
+}
+
+
+
+.bg-articles-page {
+  background-color: #272d2d;
+  background-image: url("../public/images/skulls.png");
+  background-size: 15rem;
+} 
+
+.bg-article{
+  background-color: #272d2d;
+  background-image: url("../public/images/black-thread.png");
+  background-size: 6rem;
+}
+

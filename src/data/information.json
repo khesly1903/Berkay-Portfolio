@@ -1,0 +1,11 @@
+[
+  {
+    "fullname": "Berkay Kaya",
+    "mail": "kayaberkay1626@gmail.com",
+    "social-media": [
+      { "linkedin": "https://www.linkedin.com/in/berkay-kaya-3a8bb0235/" },
+      { "github": "https://github.com/khesly1903" }
+    ],
+    "greeting-text":"I'm a developer with a strong interest in mathematics and cryptography. I enjoy applying theoretical knowledge from these fields to software development. I work on fullstack web and application projects, enjoying both frontend and backend development."
+  }
+]

@@ -1,0 +1,35 @@
+navbar hoverable dropdown 
+https://www.w3schools.com/howto/howto_css_dropdown.asp
+https://www.w3schools.com/howto/howto_css_dropdown_navbar.asp
+
+
+
+contact with me
+https://uiverse.io/jlutrezehue/good-otter-35
+
+
+card
+https://uiverse.io/Kagamiie/funny-ladybug-49
+
+fingerprint thing
+https://uiverse.io/SRIMANKS/lazy-jellyfish-5
+
+myskills
+https://uiverse.io/ahmed150up/fuzzy-bird-5
+https://uiverse.io/Juanes200122/ordinary-dodo-95 (animated)
+
+
+colors
+smoke white: #F6F4F3
+ghost white: #F7F7FF -- yazi rengi
+ash grey: #C6CCB2
+cool gray: #8693AB
+vista blue: #8D9EC6
+rose quartz: #BCABAE
+raisin black: #232528 --navbar
+gun metal : #272D2D -- bg
+#303235 --article card & contact input area
+
+
+example portfolio
+https://www.codewonders.dev/

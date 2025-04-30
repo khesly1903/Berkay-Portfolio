@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "title": "Vigenere Cipher",
+    "summary": "The Caesar cipher on steroids, the once unbreakable cipher: the Vigenere Cipher",
+    "tags": ["Cryptography", "Vigenere"],
+    "image": "/articles/vigenere/vigenere.jpg",
+    "url": "vigenere",
+    "contentFile": "/articles/vigenere/vigenere-eng.html"
+  },
+  {
+    "id": 2,
+    "title": "Mathematical Introduction to Elliptic Curves",
+    "summary": "The geometric magic behind modern cryptography: Elliptic curves",
+    "tags": ["Cryptography", "Elliptic Curves"],
+    "image": "/articles/elliptic-curves/elliptic-curve-cover.png",
+    "url": "elliptic-curves",
+    "contentFile": "/articles/elliptic-curves/elliptic-curves-eng.html"
+  }
+ 
+]
