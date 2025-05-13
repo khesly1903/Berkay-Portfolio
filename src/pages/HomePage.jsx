@@ -32,6 +32,7 @@ export default function HomePage() {
           <ul>
             <li>C# & .Net</li>
             <li>Python</li>
+            <li>FastAPI</li>
             <li>SQL Server</li>
             <li>Mongo DB</li>
             <li>Entity Framework</li>
@@ -45,6 +46,7 @@ export default function HomePage() {
             <li>CSS</li>
             <li>JavaScript</li>
             <li>React</li>
+            <li>Resonsive Design</li>
           </ul>
         </div>
         <div className="home-div5 homepage-skill">

@@ -5,7 +5,8 @@ import ArticlePage from "./pages/ArticlePage"
 
 import HomePage from './pages/HomePage'
 import NoContent from './pages/NoContent'
-import ContactPage from './pages/ContactPage'
+import ProjectsPage from './pages/ProjectsPage'
+import VigenereCoder from './pages/Coders/VigenereCoder'
 
 function App() {
 
@@ -14,8 +15,9 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage/>} />
       <Route path="/articles" element={<ArticlesPage/>} />
-      {/* <Route path="/contact" element={<ContactPage/>} /> */}
       <Route path="/articles/:id" element={<ArticlePage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/projects/vigenere" element={<VigenereCoder/>} />
       <Route path="*" element={<NoContent/>} />
     </Routes>
       

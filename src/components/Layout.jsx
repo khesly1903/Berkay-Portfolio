@@ -12,7 +12,7 @@ export default function Layout({ children }) {
 
     if (location.pathname.startsWith("/articles/")) {
       body.className = "bg-article";
-    } else if (location.pathname.startsWith("/articles") || location.pathname.startsWith("/contact")) {
+    } else if (location.pathname.startsWith("/articles") || location.pathname.startsWith("/projects")) {
       body.className = "bg-articles-page";
     } else {
       body.className = ""; 

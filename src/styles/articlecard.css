@@ -15,9 +15,8 @@
 
 
 .article-card {
-  display: block;
+  display: inline-block;
   width: 20rem;
-  height: 30rem;
   background: #303235;
   border-radius: 1.5rem;
   overflow: hidden;
@@ -43,30 +42,31 @@
 }
 
 
-.card-content {
+.article-card-content {
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  min-height: 200px;  
+    
+
 }
 
-.card-content h3 {
+.article-card-content h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
-.card-content p {
-  font-size: 0.9rem;
+.article-card-content p {
+  font-size: 1.2rem;
   color: #F7F7FF;
-  flex-grow: 1;  /* Bu, p'nin daha fazla yer kaplamasına izin verir */
+  margin: 1rem 0;
 }
 
 .tags {
-  
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;  /* Bu, tags'ı alt kısma iter */
+  margin-top: auto;  
 }
 
 

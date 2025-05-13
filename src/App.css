@@ -28,3 +28,7 @@
   object-fit: cover;
   z-index: -1;
 }
+
+.cryptex{
+  top: 15rem;
+}

@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom"; // React Router'dan Link'i içe aktar
-import "../styles/articlecard.css"; // Stil dosyasını ayırdık
+import { Link } from "react-router-dom"; 
+import "../styles/articlecard.css"; 
 
 const ArticleCard = ({ image, title, summary, tags, url }) => {
   return (
     <Link to={`/articles/${url}`} className="article-card"> 
       <img src={image} alt={title} />
-      <div className="card-content">
+      <div className="article-card-content">
         <h3>{title}</h3>
         <p>{summary}</p>
         <div className="tags">
