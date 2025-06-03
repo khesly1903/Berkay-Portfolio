@@ -16,6 +16,16 @@
     "image": "/articles/elliptic-curves/elliptic-curve-cover.png",
     "url": "elliptic-curves",
     "contentFile": "/articles/elliptic-curves/elliptic-curves-eng.html"
+  },
+  {
+    "id": 2,
+    "title": "Bifid Cipher",
+    "summary": "The cipher that splits and mixes",
+    "tags": ["Cryptography", "Bifid"],
+    "image": "/articles/bifid/bifid_cover_image.png",
+    "url": "bifid",
+    "contentFile": "/articles/bifid/bifid-eng.html"
   }
+
  
 ]

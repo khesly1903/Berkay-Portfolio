@@ -1,0 +1,244 @@
+<h1>Bifid Şifreleme</h1>
+
+<p>
+  Bifid şifrelemesi, Playfair şifrelemesinde de kullanılan Polybius karesi (veya
+  tablosu) kullanarak farklı satır ve sütun operasyonlarıyla şifreleme yapan bir
+  sistemdir. Ancak burada önemli bir ayrım yapmak gerekir: Bu tabloyu yalnızca
+  "Polybius karesi" olarak adlandırmak tam olarak doğru değildir. Genellikle
+  daha gelişmiş, karıştırılmış ya da farklı karakter kombinasyonlarıyla
+  oluşturulmuş versiyonları kullanılır.
+</p>
+
+<h2>Klasik Polybius Tablosu ve Eksiklikleri</h2>
+<p>
+  Klasik Polybius karesinde yalnızca harfler yer alır. Yani sayılar ve noktalama
+  işaretleri şifrelenmez. Oysa şifrelenen metin içerisinde sayılar ve noktalama
+  işaretleri de yer alıyorsa, bunların açıkta kalması şifrenin kırılmasını
+  kolaylaştırabilir. Bu nedenle modern uygulamalarda:
+</p>
+<ul>
+  <li>Sayıların da tabloya eklenmesi,</li>
+  <li>Noktalama işaretlerinin göz önünde bulundurulması,</li>
+  <li>Tablonun karıştırılmış (randomize) olması</li>
+</ul>
+<p>
+  önerilir. Bu sayede şifreleme daha güçlü ve çözülmesi daha zor hale gelir.
+</p>
+
+<h2>Tabloların Etkisi</h2>
+
+<p>
+  Farklı tablo boyutlarının güvenlik üzerindeki etkisini anlamak için basit bir
+  örnek düşünelim. Aynı plaintext (açık metin), hem küçük hem büyük boyutlu
+  tablolarla şifrelenmiş olsun.
+</p>
+
+<div class="article-image">
+  <img
+    src="/articles/bifid/polybius_big_table.png"
+    alt="Büyük Polybius Tablosu"
+  />
+  <img
+    src="/articles/bifid/polybius_medium_table.png"
+    alt="Orta Boy Polybius Tablosu"
+  />
+  <img
+    src="/articles/bifid/polybius_small_table.png"
+    alt="Küçük Polybius Tablosu"
+  />
+  <p>Farklı kapsayıcılıkta tablolar (sonuncusu Polybius dama tahtası)</p>
+</div>
+
+<p>
+  Kapsayıcılığı az olan tablo kullanmanın dezavantajı çoktur. Öncelikle sayılar
+  şifrelenmediği için (ki çoğu şifrelenmiş yazışmada çok önemlidir) konuyu bilen
+  kişi kolayca şifreyi çözmesine gerek kalmadan içeriği anlayabilir. Ayrıca
+  noktalama işaretlerini de katarak şifrelemek metin hakkında hiçbir ipucu
+  vermez ve daha güvenli bir şifreleme ortaya koyar. Ayrıca dil yapısını bilen
+  bir şifre çözücü bu tarz şifrelenmemiş yapılardan çıkarım yaparak şifrelenmiş
+  metni kırmada büyük bir yol kat edebilir.
+</p>
+
+<p>Şu iki örneğe bir bakalım.</p>
+<p>
+  Düz metin olarak "Shall we meet at 17:00?" kullanalım. Eğer bunu klasik
+  Polybius tablosu ile şifrelersek şöyle bir sonuç elde ederiz.
+</p>
+<b>RCOCA PS OGJO YD 17:00? </b>
+<p>
+  Eğer şifrelenmiş mesajı ele geçiren biri bir buluşma olacağını anlarsa bunun
+  saatini deşifre etmeden de kolayca anlar. Veya "YD"nin "at"e karşılık
+  geleceğini çözebilir. Bir de daha kapsayıcı olan tablo ile şifrelenmiş haline
+  bakalım.
+</p>
+<b>Wfpwxeygv8U.?U{i56Rg9{</b>
+<p>
+  Büyük ihtimalle şifrelenmiş mesajı ele geçiren kişi ele geçirdiği yere geri
+  bırakır.
+</p>
+
+<p>
+  Bu yazıda, örnekleri orta boyutlu (medium) bir tablo üzerinden vereceğim; bu
+  tablo ne çok karmaşık ne de çok basit olacak.
+</p>
+
+<h2>Tarihçesi ve Kelime Kökeni</h2>
+<p>
+  Bifid şifreleme yöntemi, 1895 yılında Fransız kriptograf Félix Marie
+  Delastelle tarafından geliştirilmiştir. Aslında amatör bir kriptograf bile
+  denilebilir. Hayatının büyük çoğunluğunu limanda çalışarak geçirmiştir.
+  1902'deki ölümünden önce <em>Traité Élémentaire de Cryptographie</em> adlı
+  kitabını yazmış fakat yayınlayamamıştır. Fakat Bifid şifrelemeyi 1895 yılında
+  bir dergide sunmuştur. Ayrıca Trifid Şifrelemesi ile de tanınır.
+</p>
+
+<p>
+  "Bifid" kelimesi Latince kökenlidir ve aslında "bifidus" sözcüğünden gelir. Bu
+  da "ikiye ayrılmış" anlamını taşır.
+</p>
+
+<ul>
+  <li>"Bi" = iki</li>
+  <li>"Fid" = ayrılma, bölünme</li>
+</ul>
+
+<p>
+  Bu adlandırma rastlantı değildir çünkü şifreleme işlemi tam olarak iki aşamalı
+  ve bölünmeli bir yöntem içerir.
+</p>
+
+<h2>Şifreleme Adımları</h2>
+
+<p>Bir örnek üzerinden anlatmak şifreleme adımlarını daha kolay kılacaktır.</p>
+
+<p>Örneğin şifrelemek istediğimiz yazı "CRYPTOGRAPHY" olsun.</p>
+
+<b>Tablodan karşılıkların bulunması</b>
+<br />
+<div class="article-image article-image-small">
+  <img
+    src="/articles/bifid/polybius_medium_table.png"
+    alt="Orta Boy Polybius Tablosu Örneği"
+  />
+</div>
+
+<p>
+  Kullanacağımız tablo yukarıda verilmiştir. Her harfe karşılık gelen
+  koordinatları satırlar i, sütunlar j indisini belirtecek şekilde karşılıkları
+  bulunur.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc1.png" alt="Koordinat Bulma Örneği" />
+</div>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc4.png" alt="Koordinat Gösterimi" />
+</div>
+
+<b>Koordinatların Ayrılması</b>
+<p>Tüm koordinatlar alındıktan sonra:</p>
+
+<ul>
+  <li>İlk olarak tüm satır (i) değerleri,</li>
+  <li>Sonra tüm sütun (j) değerleri yazılır.</li>
+</ul>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc2.png" alt="Koordinat Ayrımı" />
+</div>
+
+<p>Genelleştirilmiş yapı olarak şöyle gösterebiliriz.</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc3.png" alt="Genel Koordinat Yapısı" />
+</div>
+
+<b>Sayıların Digraflara Ayrılması</b>
+
+<p>Elde edilen sayı dizisi, ikili gruplar (digraflar) haline getirilir:</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc6.png" alt="Digraf Oluşturma" />
+</div>
+<p>
+  Genelleştirilmiş yapı olarak şöyle gösterebiliriz. Şifrelenecek metnin
+  karakter sayısının çift veya tek olma durumuna göre değişiklik gösterebilir.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc5.png" alt="Genel Digraf Yapısı" />
+</div>
+
+<b>Şifrelenmiş Metnin Harf Karşılıklarını Bulmak</b>
+<p>
+  Elde ettiğimiz digraflar bize şifrelenmiş metnin koordinatlarını verir. Yani
+  geriye sadece tablodan yararlanılarak harfleri bulmak kalır.
+</p>
+
+<div class="article-image article-image-small">
+  <img
+    src="/articles/bifid/crypto-enc7.png"
+    alt="Şifrelenmiş Metin Oluşturma"
+  />
+</div>
+
+<p>
+  Yani <b>"CRYPTOGRAPHY"</b> kelimesinin şifrelenmiş hali
+  <b>"C0UICKRDIFDG"</b> olur.
+</p>
+
+<h2>Deşifreleme Adımları</h2>
+
+<p>Aslında deşifreleme adımları, şifreleme adımlarının tersidir.</p>
+
+<b>Şifrelenmiş Metnin Tablodan Karşılıklarının Bulunması</b>
+<p>
+  Tam olarak şifrelemenin en son adımında elde edilen tablo burada başta yapılır
+</p>
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc7.png" alt="Şifre Çözümü İçin Tablo" />
+</div>
+<b>Koordinatların Ayrılması</b>
+<p>
+  Bu sefer önce tüm i koordinatları sonra tüm j koordinatları yerine sırasıyla
+  (i,j) çiftleri alınır, sonrasında digraflardan arındırılır ve tek bir dize
+  olarak yazılır.
+</p>
+
+<div class="article-image article-image-long">
+  <img src="/articles/bifid/crypto-enc6.png" alt="Koordinat Ayrımı" />
+</div>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc2.png" alt="Koordinat Dizisi" />
+</div>
+
+<b>Ortadan İkiye Bölme</b>
+<p>Elde edilen sayı dizisi tam ortadan ikiye bölünür.</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-dec1.png" alt="Sayı Dizisini Bölme" />
+</div>
+
+<b>Parçaları Birleştirme</b>
+<p>
+  Elde edilen iki parçada şöyle bir şey dikkat çekmiş olabilir. İlk parça
+  şifrelerken koordinatları yazdığımız kısmın i koordinatları, ikincisi ise j
+  koordinatları. Yani ikinci parçayı ilk parçanın altına koyarsak şifrelemede
+  elde ettiğimiz koordinatların aynısını elde ederiz.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-dec2.png" alt="Koordinat Birleştirme" />
+</div>
+
+<p>Yani aslında,</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc1.png" alt="Orijinal Koordinatlar" />
+</div>
+
+<b>Deşifre Edilmiş Metnin Harf Karşılıklarını Bulmak</b>
+
+<p>Yukarıdaki görselden istediğimiz sonuca ulaştığımız anlaşılır.</p>

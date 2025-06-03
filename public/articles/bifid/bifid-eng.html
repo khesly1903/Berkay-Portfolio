@@ -1,0 +1,247 @@
+<h1>Bifid Cipher</h1>
+
+<p>
+  The Bifid cipher is an encryption system that uses the Polybius square (or
+  table), similar to the one used in the Playfair cipher, but with different row
+  and column operations. However, an important distinction must be made here:
+  referring to this table simply as a "Polybius square" isn't entirely accurate.
+  Typically, more advanced, scrambled versions or those with different character
+  combinations are used.
+</p>
+
+<h2>Classic Polybius Table and Its Limitations</h2>
+<p>
+  The classic Polybius square contains only letters. This means numbers and
+  punctuation marks remain unencrypted. However, when the plaintext contains
+  numbers and punctuation marks, leaving them exposed can make the cipher easier
+  to break. Therefore, in modern applications:
+</p>
+<ul>
+  <li>Including numbers in the table,</li>
+  <li>Accounting for punctuation marks,</li>
+  <li>Using a randomized table</li>
+</ul>
+<p>
+  is recommended. This makes the encryption stronger and more difficult to
+  crack.
+</p>
+
+<h2>Impact of Table Variations</h2>
+
+<p>
+  To understand how different table sizes affect security, let's consider a
+  simple example. Imagine the same plaintext encrypted using both small and
+  large tables.
+</p>
+
+<div class="article-image">
+  <img
+    src="/articles/bifid/polybius_big_table.png"
+    alt="Large Polybius Table"
+  />
+  <img
+    src="/articles/bifid/polybius_medium_table.png"
+    alt="Medium Polybius Table"
+  />
+  <img
+    src="/articles/bifid/polybius_small_table.png"
+    alt="Small Polybius Table"
+  />
+  <p>
+    Tables with varying coverage (the last one being the Polybius checkerboard)
+  </p>
+</div>
+
+<p>
+  Using a table with limited coverage has several disadvantages. First, since
+  numbers remain unencrypted (which are crucial in most encrypted
+  communications), someone familiar with the subject could understand the
+  content without needing to decrypt it. Additionally, incorporating punctuation
+  marks into the encryption leaves no clues about the text, resulting in more
+  secure encryption. Furthermore, a codebreaker familiar with the language
+  structure could make inferences from such unencrypted elements and make
+  significant progress in breaking the cipher.
+</p>
+
+<p>Let's examine these two examples.</p>
+<p>
+  For plaintext, let's use "Shall we meet at 17:00?". If we encrypt this using
+  the classic Polybius table, we get the following result.
+</p>
+<b>RCOCA PS OGJO YD 17:00? </b>
+<p>
+  If someone intercepting the encrypted message realizes it's about a meeting,
+  they could easily determine the time without decrypting it. Or they might
+  deduce that "YD" corresponds to "at". Now let's look at the version encrypted
+  with a more comprehensive table.
+</p>
+<b>Wfpwxeygv8U.?U{i56Rg9{</b>
+<p>
+  Most likely, the person who intercepts this encrypted message would simply put
+  it back where they found it.
+</p>
+
+<p>
+  In this article, I'll use examples based on a medium-sized table - one that's
+  neither too complex nor too simple.
+</p>
+
+<h2>History and Etymology</h2>
+<p>
+  The Bifid cipher was developed in 1895 by French cryptographer Félix Marie
+  Delastelle. He could even be considered an amateur cryptographer, having spent
+  most of his life working in a harbor. Before his death in 1902, he wrote a
+  book titled <em>Traité Élémentaire de Cryptographie</em> but couldn't publish
+  it. However, he did present the Bifid cipher in a journal in 1895. He's also
+  known for the Trifid cipher.
+</p>
+
+<p>
+  The word "Bifid" comes from Latin, originating from "bifidus," meaning "split
+  in two."
+</p>
+
+<ul>
+  <li>"Bi" = two</li>
+  <li>"Fid" = to split, to divide</li>
+</ul>
+
+<p>
+  This naming isn't coincidental, as the encryption process involves exactly two
+  stages and a division method.
+</p>
+
+<h2>Encryption Steps</h2>
+
+<p>An example will make the encryption steps easier to understand.</p>
+
+<p>Let's use "CRYPTOGRAPHY" as our plaintext.</p>
+
+<b>Finding Corresponding Values in the Table</b>
+<br />
+<div class="article-image article-image-small">
+  <img
+    src="/articles/bifid/polybius_medium_table.png"
+    alt="Medium Polybius Table Example"
+  />
+</div>
+
+<p>
+  The table we'll use is shown above. We find the coordinates for each letter,
+  with rows as i and columns as j indices.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc1.png" alt="Coordinate Finding Example" />
+</div>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc4.png" alt="Coordinate Representation" />
+</div>
+
+<b>Splitting the Coordinates</b>
+<p>After obtaining all coordinates:</p>
+
+<ul>
+  <li>First, all row (i) values are written,</li>
+  <li>Then all column (j) values are written.</li>
+</ul>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc2.png" alt="Coordinate Separation" />
+</div>
+
+<p>We can represent this generalized structure as follows.</p>
+
+<div class="article-image article-image-small">
+  <img
+    src="/articles/bifid/crypto-enc3.png"
+    alt="General Coordinate Structure"
+  />
+</div>
+
+<b>Dividing Numbers into Digraphs</b>
+
+<p>
+  The resulting number sequence is divided into digraphs (pairs of numbers):
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc6.png" alt="Digraph Creation" />
+</div>
+<p>
+  We can represent this generalized structure as follows. The process may vary
+  depending on whether the plaintext has an even or odd number of characters.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc5.png" alt="General Digraph Structure" />
+</div>
+
+<b>Finding Letter Equivalents for the Encrypted Message</b>
+<p>
+  The digraphs give us the coordinates of the encrypted message. All that
+  remains is to find the corresponding letters using the table.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc7.png" alt="Encrypted Message Creation" />
+</div>
+
+<p>
+  Thus, the encrypted version of <b>"CRYPTOGRAPHY"</b> becomes
+  <b>"C0UICKRDIFDG"</b>.
+</p>
+
+<h2>Decryption Steps</h2>
+
+<p>Decryption essentially reverses the encryption steps.</p>
+
+<b>Finding Coordinates from the Encrypted Message</b>
+<p>We start by recreating the table used in the final encryption step.</p>
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc7.png" alt="Decryption Table" />
+</div>
+<b>Splitting the Coordinates</b>
+<p>
+  This time, instead of writing all i coordinates first followed by j
+  coordinates, we take the (i,j) pairs in order, then remove the digraph
+  separation to create a single sequence.
+</p>
+
+<div class="article-image article-image-long">
+  <img src="/articles/bifid/crypto-enc6.png" alt="Coordinate Separation" />
+</div>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc2.png" alt="Number Sequence" />
+</div>
+
+<b>Splitting in Half</b>
+<p>The number sequence is divided exactly in half.</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-dec1.png" alt="Splitting the Sequence" />
+</div>
+
+<b>Combining the Parts</b>
+<p>
+  You may notice something interesting about the two resulting parts. The first
+  part contains the i coordinates we wrote during encryption, while the second
+  contains the j coordinates. By placing the second part beneath the first, we
+  recreate the original coordinates we had during encryption.
+</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-dec2.png" alt="Combining Coordinates" />
+</div>
+
+<p>Which means we've essentially reconstructed:</p>
+
+<div class="article-image article-image-small">
+  <img src="/articles/bifid/crypto-enc1.png" alt="Original Coordinates" />
+</div>
+
+<b>Finding Letter Equivalents for the Decrypted Message</b>
+
+<p>The image above shows we've successfully achieved our desired result.</p>

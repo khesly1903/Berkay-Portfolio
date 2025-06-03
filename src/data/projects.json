@@ -4,5 +4,11 @@
         "projectName": "Vigenere Cipher Coder",
         "projectDescription": "The Caesar cipher on steroids, the once unbreakable cipher: the Vigenere Cipher",
         "url": "vigenere"
+      },
+      {
+        "id": 2,
+        "projectName": "Bifid cipher",
+        "projectDescription": "The cipher that splits and mixes",
+        "url": "bifid"
       }
 ]

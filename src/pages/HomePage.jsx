@@ -17,7 +17,7 @@ export default function HomePage() {
           <h1>Hi, I'm Berkay</h1>
 
           <p className="information-greeting">
-            I'm a full-stack developer with a strong interest in mathematics, cryptography and linux.
+            I'm a full-stack (MERN-stack) developer with a strong interest in mathematics, cryptography and linux.
           </p>
           <br />
           <div className="information-school">
@@ -55,6 +55,7 @@ export default function HomePage() {
             <li>Mathematical Background</li>
             <li>Elliptic Curve Cryptography</li>
             <li>ElGamal Cryptosystem</li>
+            <li>19th and 20th-century cryptographic ciphers</li>
           </ul>
         </div>
         </div>

@@ -6,7 +6,8 @@ import ArticlePage from "./pages/ArticlePage"
 import HomePage from './pages/HomePage'
 import NoContent from './pages/NoContent'
 import ProjectsPage from './pages/ProjectsPage'
-import VigenereCoder from './pages/Coders/VigenereCoder'
+import BifidCipher from './pages/Coders/BifidCipher'
+import VigenereCipher from './pages/Coders/VigenereCipher'
 
 function App() {
 
@@ -17,9 +18,11 @@ function App() {
       <Route path="/articles" element={<ArticlesPage/>} />
       <Route path="/articles/:id" element={<ArticlePage />} />
       <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/vigenere" element={<VigenereCoder/>} />
+      <Route path="/projects/vigenere" element={<VigenereCipher/>} />
+      <Route path="/projects/bifid" element={<BifidCipher/>} />
       <Route path="*" element={<NoContent/>} />
     </Routes>
+      
       
     </>
   )

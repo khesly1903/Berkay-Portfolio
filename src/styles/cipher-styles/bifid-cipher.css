@@ -1,0 +1,101 @@
+.bifid-cipher {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr 1.6fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.bifid-cipher-left {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.bifid-cipher-middle {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.bifid-cipher-right {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.bifid-cipher-child {
+  box-sizing: border-box;
+  padding: 1rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.bifid-table {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bifid-row {
+  display: flex;
+  gap: 6px;
+}
+
+.bifid-cell {
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6e6b6b34;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.bifid-cipher-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+}
+
+.bifid-cipher-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-area svg {
+  fill: rgba(42, 39, 39, 0.658) !important;
+}
+
+.bifid-crypt-btn {
+  color: black !important;
+}
+
+@media (max-width: 1040px) {
+  .bifid-cipher {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr;
+    justify-items: center; 
+    align-items: center;
+  }
+
+  .bifid-cipher-left {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .bifid-cipher-middle {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .bifid-cipher-right {
+    grid-area: 3 / 1 / 4 / 2;
+    width: 90%;
+  }
+
+
+}
+

@@ -1,0 +1,46 @@
+.vigenere-cipher {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.vigenere-cipher-left {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.vigenere-cipher-right {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.vigenere-cipher-child {
+  display: flex;
+  margin-top: 3rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 90vh;
+}
+
+.vigenere-cipher-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  gap: 1rem;
+}
+
+.vigenere-cipher-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-area svg {
+  fill: rgba(42, 39, 39, 0.658) !important;
+}

@@ -133,6 +133,7 @@
   color: #555;
   text-align: center;
   width: 100%;
+  max-width: 100%;
 }
 
 /* === TABLET (768px VE ÜZERİ) === */
